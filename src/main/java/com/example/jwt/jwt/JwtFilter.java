@@ -14,6 +14,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+
 //토큰 인증정보를 security context에 저장함
 public class JwtFilter extends GenericFilterBean {
 

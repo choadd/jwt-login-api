@@ -8,6 +8,10 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+#  sql:
+#    init:
+#      data-locations:
+#        - classpath:data.sql
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
@@ -17,11 +21,17 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-logging:
-  level:
-    me.jun: DEBUG
-
+    defer-datasource-initialization: true
 jwt:
   header: Authorization
-  secret:
+  #HS512 ????? ??? ??? ??? 512bit, ? 64byte ??? secret key? ???? ??.
+  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
   token-validity-in-seconds: 86400
+
+logging:
+  level:
+    me.silvernine: DEBUG
+
+server:
+  port: 8080
